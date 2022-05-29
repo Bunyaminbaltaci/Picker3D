@@ -29,7 +29,7 @@ public class Counter : MonoBehaviour
 
     IEnumerator Waiter()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         _limitCheck();
 
     }

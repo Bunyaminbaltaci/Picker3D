@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        _expCounter = 0;
         SceneManager.LoadScene(0);
     }
 

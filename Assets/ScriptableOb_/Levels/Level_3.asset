@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85083e07a3fc6de4b846f312df9425ad, type: 3}
   m_Name: Level_3
   m_EditorClassIdentifier: 
-  TargerScore: 25
+  TargerScore: 20
   Prefabs: {fileID: 5605340157378157239, guid: 094d2978ccb39cd48a83db801f08da48, type: 3}

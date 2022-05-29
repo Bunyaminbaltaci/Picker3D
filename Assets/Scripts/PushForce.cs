@@ -7,15 +7,19 @@ public class PushForce : Movement
 {
     public override void DoMovement(Transform transform, Rigidbody rb)
     {
+        //karakter hareketi düzgün saðlanamadý.
         if (Input.GetMouseButtonDown(0))
         {
-            if (rb.velocity.z <= 45f)
-            {
-                rb.AddForce(0, 0, 15f, ForceMode.Impulse);
-                rb.velocity = new Vector3(0, 0, Mathf.Clamp(rb.velocity.z, 0, 45));
-            }
+           
+
+                rb.AddRelativeForce(new Vector3(0,1f,20f*rb.mass),ForceMode.Impulse);
+
+
 
         
         }
+        
+       
     }
+ 
 }
