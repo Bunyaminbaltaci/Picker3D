@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character_Controller : MonoBehaviour
 {
     [SerializeField]
-    private Movement _movement;
+    private MovementList _movement;
     [SerializeField]
     private GameObject screen;
 
@@ -16,14 +16,22 @@ public class Character_Controller : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         GameManager.Instance.MissionComp += Instance_MissionComp;
-      
+
 
     }
-  
+
     void Update()
     {
 
-        _movement.DoMovement(transform,_rb);
+        if (GameManager.Instance.gameStatus == GameStatus.End)
+        {
+            _movement.MovementsList[1].DoMovement(transform, _rb);
+
+        }
+        else
+        {
+            _movement.MovementsList[0].DoMovement(transform, _rb);
+        }
     }
 
 
