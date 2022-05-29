@@ -4,6 +4,7 @@
         Playing,
         Stop,
         End,
-        Fail,
+        Fail
+      
 
     }

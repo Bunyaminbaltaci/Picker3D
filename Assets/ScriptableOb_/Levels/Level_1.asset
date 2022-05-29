@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: 
   TargerScore: 10
-  BallsInlevel: []
-  BallsPos: []
+  Prefabs: {fileID: 2186291818264252282, guid: 212f91aa7eb319d4ab68045602c3bd48, type: 3}

@@ -22,8 +22,8 @@ public class Character_Controller : MonoBehaviour
   
     void Update()
     {
-       
-            _movement.DoMovement(transform, _rb);
+
+        _movement.DoMovement(transform,_rb);
     }
 
 
@@ -39,6 +39,11 @@ public class Character_Controller : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         screen.SetActive(false);
+        StopAllCoroutines();
     }
-  
+    private void OnDestroy()
+    {
+        GameManager.Instance.MissionComp -= Instance_MissionComp;
+    }
+
 }

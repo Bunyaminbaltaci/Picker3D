@@ -6,8 +6,7 @@ using UnityEngine;
 public class LevelsSO : ScriptableObject
 {
     public int TargerScore;
-    public List<GameObject> BallsInlevel;
-    public List<Vector3> BallsPos;
+    public GameObject Prefabs;
     
 
 }
