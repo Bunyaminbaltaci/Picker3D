@@ -57,7 +57,7 @@ public class Counter : MonoBehaviour
             doorLeft.doorOpen();
             coverCont.OpenCover();
             GameManager.Instance.UpdatePoint(_counter);
-            GameManager.Instance.UpdateLevel();
+            GameManager.Instance.ExpCounter();
         }
         else
         {

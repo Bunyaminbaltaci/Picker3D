@@ -14,36 +14,47 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lvlNext;
     [SerializeField] private TextMeshProUGUI scrTxt;
     [SerializeField] private List<Image> lvlImages;
- 
+
     private void Start()
     {
-        GameManager.Instance.MissionFail += Instance_MissionFail;
-        GameManager.Instance.MissionComp += Instance_MissionComp;
-        GameManager.Instance.Lvlup += Instance_Lvlup;
-        UpdatelvlText();
-        ContinuousCheck();
+        GameManager.Instance.MissionFail += _instance_MissionFail;
+        GameManager.Instance.MissionComp += _instance_MissionComp;
+        GameManager.Instance.Lvlup += _instance_Lvlup;
+        GameManager.Instance.GameStart += Instance_GameStart;
+        _updatelvlText();
+        _continuousCheck();
 
     }
-    private void ContinuousCheck()
+
+    private void Instance_GameStart(object sender, System.EventArgs e)
     {
-        if (GameManager.Instance.GameStarted==true)
+        _updatelvlText();
+
+    }
+    private void _continuousCheck()
+    {
+        if (GameManager.Instance.GameStarted == true)
         {
             Play();
         }
     }
-    private void Instance_Lvlup(object sender, System.EventArgs e)
+    private void _instance_Lvlup(object sender, System.EventArgs e)
     {
         Updatelvl();
     }
-
-    private void Instance_MissionComp(object sender, System.EventArgs e)
+    private void _instance_MissionComp(object sender, System.EventArgs e)
     {
         ExpUp();
     }
-
-    private void Instance_MissionFail(object sender, System.EventArgs e)
+    private void _instance_MissionFail(object sender, System.EventArgs e)
     {
         GameFailed();
+    }
+    private void _updatelvlText()
+    {
+        lvlNow.text = (GameManager.Instance.GetLvl()).ToString();
+        lvlNext.text = (GameManager.Instance.GetLvl() + 1).ToString();
+        scrTxt.text = (GameManager.Instance.GetScr()).ToString();
     }
 
     public void Play()
@@ -58,12 +69,11 @@ public class UIManager : MonoBehaviour
     {
         failedMenu.SetActive(true);
     }
-
     public void ExpUp()
     {
 
         lvlImages[GameManager.Instance.GetExp()].GetComponent<Image>().color = new Color32(190, 39, 163, 255);
-        UpdatelvlText();
+        _updatelvlText();
 
     }
     public void Updatelvl()
@@ -73,15 +83,9 @@ public class UIManager : MonoBehaviour
             changer.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
         }
-        UpdatelvlText();
+        _updatelvlText();
 
 
-    }
-    public void UpdatelvlText()
-    {
-        lvlNow.text = (GameManager.Instance.GetLvl()).ToString();
-        lvlNext.text = (GameManager.Instance.GetLvl() + 1).ToString();
-        scrTxt.text = (GameManager.Instance.GetScr()).ToString();
     }
     public void RestartBtn()
     {
@@ -89,10 +93,10 @@ public class UIManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameManager.Instance.MissionFail -= Instance_MissionFail;
-        GameManager.Instance.MissionComp -= Instance_MissionComp;
-        GameManager.Instance.Lvlup -= Instance_Lvlup;
+        GameManager.Instance.MissionFail -= _instance_MissionFail;
+        GameManager.Instance.MissionComp -= _instance_MissionComp;
+        GameManager.Instance.Lvlup -= _instance_Lvlup;
     }
 
-    
+
 }
