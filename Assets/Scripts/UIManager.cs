@@ -63,6 +63,7 @@ public class UIManager : MonoBehaviour
         lvlMenu.SetActive(true);
         GameManager.Instance.GameStarted = true;
         GameManager.Instance.gameStatus = GameStatus.Playing;
+        GameManager.Instance.LoadSave();
 
     }
     public void GameFailed()

@@ -61,7 +61,7 @@ public class Move_Swerwe : Movement
 
         if (GameManager.Instance.gameStatus==GameStatus.Playing)
         {
-            rb.velocity = new Vector3(_swerveAmount * Time.deltaTime, 0, MoveSpeed);
+            rb.velocity = new Vector3(_swerveAmount * Time.fixedDeltaTime, 0, MoveSpeed);
             transf.position = new Vector3(Mathf.Clamp(transf.position.x, -MaxRL, MaxRL), transf.position.y, transf.position.z); 
         }
         else

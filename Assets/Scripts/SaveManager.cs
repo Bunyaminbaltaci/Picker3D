@@ -15,10 +15,10 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-       
     }
     private void Start()
     {
+
         GameManager.Instance.LoadSave();
         GameManager.Instance.Lvlup += _instance_Lvlup;
         GameManager.Instance.GameStart += _instance_GameStart;
