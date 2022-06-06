@@ -63,6 +63,7 @@ public class Move_Swerwe : Movement
         {
             rb.velocity = new Vector3(_swerveAmount * Time.fixedDeltaTime, 0, MoveSpeed);
             transf.position = new Vector3(Mathf.Clamp(transf.position.x, -MaxRL, MaxRL), transf.position.y, transf.position.z); 
+           
         }
         else
         {

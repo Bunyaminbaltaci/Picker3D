@@ -34,8 +34,17 @@ public class Character_Controller : MonoBehaviour
     #endregion
     void Update()
     {
-        _movement.MovementsList[0].DoMovement(transform, _rb);
-      
+        //_movement.MovementsList[0].DoMovement(transform, _rb);
+        if (GameManager.Instance.gameStatus != GameStatus.End)
+        {
+            _movement.MovementsList[0].DoMovement(transform, _rb);
+
+
+        }
+        else
+        {
+            _movement.MovementsList[1].DoMovement(transform, _rb);
+        }
     }
 
 

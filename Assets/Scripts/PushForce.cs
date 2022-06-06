@@ -10,9 +10,9 @@ public class PushForce : Movement
         //karakter hareketi düzgün saðlanamadý.
         if (Input.GetMouseButtonDown(0))
         {
-           
 
-                rb.AddRelativeForce(new Vector3(0,1f,20f*rb.mass),ForceMode.Impulse);
+            Debug.Log("girdi");
+                rb.AddRelativeForce(Vector3.forward*300f,ForceMode.Force);
 
 
 

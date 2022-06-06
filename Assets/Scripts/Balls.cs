@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Balls : MonoBehaviour
 {
-    private Vector3 _firstPos;
+    //private Vector3 _firstPos;
     private Rigidbody _rigidbody;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _firstPos = transform.position;
+        //_firstPos = transform.position;
 
     }
     private void OnTriggerEnter(Collider other)
@@ -23,8 +23,8 @@ public class Balls : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    private void OnDisable()
-    {
-        transform.position = _firstPos;
-    }
+    //private void OnDisable()
+    //{
+    //    transform.position = _firstPos;
+    //}
 }

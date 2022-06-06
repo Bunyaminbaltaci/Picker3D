@@ -26,13 +26,7 @@ public class GameManager : MonoBehaviour
     private int _level = 1;
     private int _score = 0;
 
-    #region NotUse
-    //public List<List<GameObject>> levelObjectlist;
-    //[SerializeField]
-    //private List<GameObject> level1_Ballobjects, level2_Ballobjects, level3_Ballobjects;
-    //private BallHandler _ballHandler;
-
-    #endregion
+    
 
     #endregion
 
@@ -53,14 +47,7 @@ public class GameManager : MonoBehaviour
     {
 
         LoadSave();
-        #region TEST
-        //levelObjectlist = new List<List<GameObject>>();
-        //_ballHandler = new BallHandler();
-        //levelObjectlist.Add(level1_Ballobjects);
-        //levelObjectlist.Add(level2_Ballobjects);
-        //levelObjectlist.Add(level3_Ballobjects);
-        //levelHandler(levelList,levelObjectlist); 
-        #endregion
+        
     }
 
     public int GetExp() => _expCounter % 3;
@@ -107,19 +94,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //public void levelHandler(LevelsSOList level, List<List<GameObject>> levelBall)
-    //{
-
-    //    //!!!!!!!!Scriptable object depolama olarak 1 kere kullanýlýyor tekrar kullanýldýðýnda herhangi bir silme iþlemi yapmadýðýmýz için üstüste-
-    //    //ekliyor o yüzden tek sefer kullan kapat kullanman gerektiðinde level scriptable objectlerin positionlarýný ve gameobjectlerini sýfýrla!!!!!!!!.
-
-
-    //    //_ballHandler.Poller(levelList, levelObjectlist); 
-
-
-
-
-    //}
 
 
 }
