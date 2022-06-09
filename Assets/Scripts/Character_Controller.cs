@@ -5,13 +5,12 @@ using UnityEngine;
 public class Character_Controller : MonoBehaviour
 {
     [SerializeField]
-    private MovementList _movement;
+    private MovementList movement;// 0.swerve 1.pushforce 2.moveforward
     [SerializeField]
     private GameObject screen;
-
     private Rigidbody _rb;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -19,34 +18,30 @@ public class Character_Controller : MonoBehaviour
 
 
     }
-    #region UpdateInside
 
-    //if (GameManager.Instance.gameStatus != GameStatus.End)
-    //{
-    //    _movement.MovementsList[0].DoMovement(transform, _rb);
-
-
-    //}
-    //else
-    //{
-    //    _movement.MovementsList[1].DoMovement(transform, _rb);
-    //} 
-    #endregion
     void Update()
     {
-        //_movement.MovementsList[0].DoMovement(transform, _rb);
-        if (GameManager.Instance.gameStatus != GameStatus.End)
+
+        if (GameManager.Instance.gameStatus == GameStatus.Playing)
         {
-            _movement.MovementsList[0].DoMovement(transform, _rb);
+            movement.MovementsList[0].DoMovement(transform, _rb);
+            movement.MovementsList[2].DoMovement(transform, _rb);
 
 
         }
-        else
+        else if (GameManager.Instance.gameStatus == GameStatus.Stop)
         {
-            _movement.MovementsList[1].DoMovement(transform, _rb);
+            _rb.velocity = Vector3.zero;
         }
+        else if (GameManager.Instance.gameStatus == GameStatus.End)
+        {
+
+            movement.MovementsList[1].DoMovement(transform, _rb);
+
+        }
+
+
     }
-
 
 
 
